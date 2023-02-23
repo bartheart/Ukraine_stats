@@ -1,0 +1,98 @@
+body {
+    background-color: #2F3F4D;
+    width: 100%;
+    height: auto;
+    margin: 0%;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: transparent;
+    flex: 1;
+    display: flex;
+    flex-direction:row;
+    align-items: flex-start;
+    z-index: 9999;
+    width: 100%;
+    display: fixed;
+    top: 0%;
+}
+
+header .logo {
+    padding-top: 1%;
+    padding-left: 1%;
+    size: 80%;
+}
+
+main {
+    padding-right: 4%;
+    padding-left: 4%;
+    padding-bottom: 4%;
+    width: auto;
+    height: 100%;
+    position: relative;
+    /*top: 100px;*/
+    flex: auto;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    
+}
+
+footer {
+    background-color: #22201f15;
+    width: 100%;
+    flex: 1;
+    align-items: baseline;
+    position: absolute;
+    bottom: 0%;
+}
+
+footer p {
+    color: #dedddb;
+    text-align: center;
+    font-weight: 100;
+    font-size: 10px;
+    padding: auto;
+}
+
+.container{
+    height: fit-content;
+    color: #dedddb;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+}
+.contentFooter{
+    padding: 2%;
+    flex-direction: row;
+    flex: 1;
+}
+
+.copyright {
+    flex: 1;
+}
+
+.rightFooter {
+    float: right;
+}
+.leftFooter{
+    float: left;
+}
+
+.navLink a {
+    -webkit-transform: all 0.3s ease 0s;
+            transform: all 0.3s ease 0s;
+}
+  
+.navLink a:hover {
+    color: #d813d8;
+}
+
+.nav_ele{
+    display: inline-block;
+    color: #dedddb;
+    width: 24%;
+    
+}

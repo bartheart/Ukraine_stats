@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>StockBasics</title>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+        {% block head%}{% endblock%}
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            <!--<div class="navbar navbar-inverse">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="index.php"><img src="images/logo.png"></a>
+                    </div>
+                    <div class="nav-items">
+                        <a href="index.php">HOME</a>
+                        <a href="#">ALERTS</a>
+                        <a href="input.php">MARKETS</a>
+                        <a href="#">ABOUT US</a>
+                    </div>
+                    <div class="search navbar-left">
+                        <form onsubmit="event.preventDefault();" role="search">
+                            <input id="search" type="search" placeholder="Search..." autofocus required />
+                            <button type="submit">Go</button>    
+                            </form>
+                    </div>
+                <div class=""></div>
+            </div>-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html"><img class="logo" src="{{url_for('static', filename='images/logo.png')}}"></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Alerts</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Market
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">NYC</a></li>
+                            <li><a class="dropdown-item" href="#">International</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">NASDAQ</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Help</a>
+                        </li>
+                        </ul>
+                        <form class="d-flex">
+                        <input class="form-control ml-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    
+        <div class="container-fluid main">
+            <div class="wrapper">
+                <div>
+                    <h1>Ukraine Stats</h1>
+                    <p>Daily status of events happening in Ukraine and it's outskirts.</p>
+                </div>
+            
+                <table class="table table-hover">
+                    <tr>
+                        <td>Date</td>
+                        <td>Publised Date</td>
+                        <td>Total Death</td>
+                        <td>Total Death Men</td>
+                        <td>Total Death Women</td>
+                        <td>Total Death Girls</td>
+                        <td>Total Death Boys</td>
+                        <td>Total Death Children</td>
+                        <td>Total Death Adults</td>
+                        <td>Total Injured</td>
+                        <td>Total Injured Men</td>
+                        <td>Total Injured Women</td>
+                        <td>Total Injured Girls</td>
+                        <td>Total Injured Boys</td>
+                        <td>Total Injured Children</td>
+                        <td>Total Injured Adults</td>
+                        <td>Casualties_cptl</td>
+                        <td>Death_cptl</td>
+                        <td>Injured_cptl</td>
+                        <td>Casaulties_gov_ctrl</td>
+                        <td>Death_gov_ctrl</td>
+                        <td>Injured_gov_ctrl</td>
+                        <td>Casaulties_republic</td>
+                        <td>Death_republic</td>
+                        <td>Injured_republic</td>
+                        <td>Casaulties_other_area</td>
+                        <td>Death_other_area</td>
+                        <td>Injured_other_area</td>
+                    </tr>
+                    {% for article in articles %}
+                    <tr>
+                        <td>{{ article.date_created}}</td>
+                        <td>{{ article.publised_date}}</td>
+                        <td>{{ article.total_death}}</td>
+                        <td>{{ article.total_death_men}}</td>
+                        <td>{{ article.total_death_women}}</td>
+                        <td>{{ article.total_death_girls}}</td>
+                        <td>{{ article.total_death_boys}}</td>
+                        <td>{{ article.total_death_children}}</td>
+                        <td>{{ article.total_death_adults}}</td>
+                        <td>{{ article.total_injured}}</td>
+                        <td>{{ article.total_injured_men}}</td>
+                        <td>{{ article.total_injured_women}}</td>
+                        <td>{{ article.total_injured_girls}}</td>
+                        <td>{{ article.total_injured_boys}}</td>
+                        <td>{{ article.total_injured_children}}</td>
+                        <td>{{ article.total_injured_adults}}</td>
+                        <td>{{ article.casualties_cptl}}</td>
+                        <td>{{ article.death_cptl}}</td>
+                        <td>{{ article.injured_cptl}}</td>
+                        <td>{{ article.casaulties_gov_ctrl}}</td>
+                        <td>{{ article.death_gov_ctrl}}</td>
+                        <td>{{ article.injured_gov_ctrl}}</td>
+                        <td>{{ article.casaulties_republic}}</td>
+                        <td>{{ article.death_republic}}</td>
+                        <td>{{ article.injured_republic}}</td>
+                        <td>{{ article.casaulties_other_area}}</td>
+                        <td>{{ article.death_other_area}}</td>
+                        <td>{{ article.injured_other_area}}</td>
+                        
+                    {% endfor %}
+        
+                <form action='/' method="POST">
+                    <input type="submit" value="start">
+                </form>
+            </div>
+        </div>
+        
+   
+        <!--<div class="container-fluid">
+            <div class="wrapper">
+                <div class="content-footer">
+                    <div class="left-footer">
+                        <h3>A LITTLE ABOUT BIBSTOCKS</h3>
+                        <P>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</P>
+                    </div>
+                    <div class="right-footer">
+                        <h3>PARTENERS</h3>
+                        <div class="left-footer">
+                            <ul>
+                                <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                                <li>Aliquam tincidunt mauris eu risus.</li>
+                                <li>Vestibulum auctor dapibus neque.</li>
+                                <li>Nunc dignissim risus id metus.</li>
+                            </ul>
+                        </div>
+                        <div class="right-footer">
+                            <ul>
+                                <li>Cras ornare tristique elit.</li>
+                                <li>Vivamus vestibulum ntulla nec ante.</li>
+                                <li>Praesent placerat risus quis eros.</li>
+                                <li>Fusce pellentesque suscipit nibh.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+                
+        </div>
+        <div class="copyright">
+            <p>&#169; Copyright 2022 Bemnet Merkebu</p>
+        </div>-->
+
+        <section class="container-fluid bottom">
+            <!-- Footer -->
+            <footer class="bg-dark text-white text-center text-md-start">
+              <!-- Grid container -->
+              <div class="container p-4">
+                <!--Grid row-->
+                <div class="row">
+                  <!--Grid column-->
+                  <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                    <h3 class="text-uppercase">A LITTLE ABOUT BIBSTOCKS</h3>
+          
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
+                      molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
+                      aliquam voluptatem veniam, est atque cumque eum delectus sint!
+                    </p>
+                  </div>
+                  <!--Grid column-->
+          
+                  <!--Grid column-->
+                  <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h4 class="text-uppercase">PARTENERS</h4>
+          
+                    <ul class="list-unstyled mb-0">
+                      <li>
+                        <a href="#!" class="text-white">Lorem ipsum dolor sit</a>
+                      </li>
+                      <li>
+                        <a href="#!" class="text-white">Aliquam tincidunt mauris</a>
+                      </li>
+                      <li>
+                        <a href="#!" class="text-white">Vestibulum auctor dapibus</a>
+                      </li>
+                      <li>
+                        <a href="#!" class="text-white">Nunc dignissim risus id</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!--Grid column-->
+          
+                  <!--Grid column-->
+                  <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-0">            </h5>
+          
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!" class="text-white">Lorem ipsum dolor sit</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white">Aliquam tincidunt mauris</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white">Vestibulum auctor dapibus</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white">Nunc dignissim risus id</a>
+                        </li>   
+                    </ul>
+                  </div>
+                  <!--Grid column-->
+                </div>
+                <!--Grid row-->
+              </div>
+              <!-- Grid container -->
+          
+              <!-- Copyright -->
+              <div class="text-center p-3" style="background-color: rgba(23, 26, 32, 0.39);">
+                © 2020 Copyright:
+                <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+              </div>
+              <!-- Copyright -->
+            </footer>
+            <!-- Footer -->
+        </section>
+
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+
+    </body>
+</html>

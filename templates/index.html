@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+
+{% block head%}
+
+{% endblock%}
+
+{% block body%}
+    <div>
+        <table>
+            <tr>
+                <td>No.</td>
+                <td>Length</td>
+                <td>Password</td>
+            </tr>
+            {% for password in passwords %}
+            <tr>
+                <td>Damn</td>
+                <td>Damn</td>
+                <td>{{ password.content }}</td>
+            </tr>
+            {% endfor %}
+
+        <form action='/' method="POST">
+            <input type="submit" value="start">
+        </form>
+    </div>
+{% endblock%}
